@@ -1,0 +1,67 @@
+% declaration text
+% full references in text are all hand-edited. Package bibentry and hyperref have an unsolved conflict. To enable hyperref, I chose not to use bibentry.
+\def\contentdeclaration{\indent Some parts of this thesis have been published in conference proceedings and journals; where items were published jointly with collaborators, the author of this thesis is responsible for the material presented here. For each published item the primary author is the first listed author.
+	\begin{itemize}
+	\item Wang, H.-T., Poerio, G. L., Murphy, C. E., Bzdok, D., Jefferies, E., \& Smallwood, J.(2018). Dimensions of Experience: Exploring the Heterogeneity of the Wandering Mind. \textit{Psychological Science}, \textit{29} (1), 56–-71. doi: 10.1177/0956797617728727
+	\item Wang, H.-T., Bzdok, D., Margulies, D., Craddock, C., Milham, M., Jefferies, E., \& Smallwood, J.(2018). Patterns of thought: Population variation in the associations between large-scale network organisation and self-reported experiences at rest. \textit{NeuroImage}, Advance online publication. doi: 10.1016/j.neuroimage.2018.04.064
+	\end{itemize}	
+
+}
+
+% acknowledgements text
+\def\contentacknowledgement{\indent Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
+\\\indent Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
+\\\indent Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
+\\\indent Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
+}
+
+% acronyms and abbreviations text
+\def\contentabbreviations{\indent 
+ \begin{acronym}[ANOVA] % put the longest/widest acronym between the square brackets; it defines the left hand column width
+ \acro{ANOVA}{ANalysis Of VAriance}
+ \acro{CCA}{Canonical Correlation Analysis}
+ \acro{DMN}{Default Mode Network}
+ \acro{ERP}{Event-Related Potential}
+ \acro{fMRI}{Functional Magnetic Resonance Imaging} 
+ \acro{PCA}{Principle Component Analysis}
+ \acro{MDES}{Mulit-Dimension Experience Sampling}
+ \acro{SCCA}{Sparse Canonical Correlation Analysis}
+\end{acronym}
+}
+
+% abstract text
+\def\contentabstract{\indent Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+\\\indent Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+\\\indent Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+\\\indent Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+\\\indent Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+}
+
+% Line spacing tweaks
+% UoY thesis demands 1.5x but sometimes we need to drop to 1.0x in tables, algorithms, and other awkward elements.
+% Call \linespacesmall before the table, then \linespacenormal after the table.
+\def\linespacesmall{
+\renewcommand{\baselinestretch}{1.0}
+}
+\def\linespacenormal{
+\renewcommand{\baselinestretch}{1.5}
+}
+
+% Shortcuts and assorted macros
+\def\erdos{Erd\H{o}s}
+\def\formulae{formul\ae{}\ }
+\def\poincare{Poincar\'e }
+\def\role{r\^{o}le\ }
+\def\mobius{M\"{o}bius\ }
+
+% Math operators and function names
+\DeclareMathOperator{\avg}{avg}
+\renewcommand{\vec}[1]{\mbox{$ \overrightarrow{ #1 } $}}
+
+% Lorem ipsum
+\def\lorem{
+	\textbf{Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit amet, consectetur, adipiscing velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?}
+}
+\def\loremshort{
+	\textbf{Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo.}
+}

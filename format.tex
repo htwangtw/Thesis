@@ -1,0 +1,74 @@
+% Formatting specifications for University of York theses
+% as specified in Regulation 2.8 'Theses submitted for higher degrees' (based on ISO 4821:1990)
+% Contains elements of M. Imran's template for University of Durham, Department of Mathematics
+
+% Load useful packages here; you _must_ include 'fancyhdr'
+\usepackage{fancyhdr}
+
+% hyperref must be called BEFORE apacite
+\usepackage{hyperref}
+
+\usepackage{acronym}
+\usepackage{afterpage}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[notocbib,nosectionbib]{apacite}
+% let the doi package handle stuff
+\renewcommand{\doiprefix}{}
+
+\usepackage{booktabs}
+\usepackage[font=small,
+			labelfont=bf,labelsep=period]{caption}
+\usepackage{doi}
+\usepackage{epic}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{latexsym}
+\usepackage{multicol} 
+\usepackage{multirow}
+\usepackage{paralist}
+\usepackage{pdfpages}
+\usepackage{rotating}
+\usepackage{siunitx}
+\usepackage{subfigure}
+\usepackage{theorem}
+\usepackage[flushleft]{threeparttable}
+\usepackage{units}
+
+% Select fonts here; leave all commented to use LaTeX defaults (Computer Modern family)
+% Note that some fonts tend to give bigger pagecounts: Times < Palatino < ComputerModern < NewCenturySchoolbook
+%\usepackage{fontenc}
+%\usepackage{times}	% Times, Helvetica, Courier
+%\usepackage{newcent}	% New Century Schoolbook, Avant Garde, Courier
+%\usepackage{palatino}	% Palatino, Helevetica, Courier
+
+% Uncomment this line to use the selected sans-serif font for the main body text. You probably don't want to do this.
+%\renewcommand{\familydefault}{\sfdefault}
+
+% fancy header
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter:\ #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\lhead[\fancyplain{}{\leftmark}]	{\fancyplain{}{}}
+\chead[\fancyplain{}{}]			{\fancyplain{}{}}
+\rhead[\fancyplain{}{}]			{\fancyplain{}{\rightmark}}
+\lfoot[\fancyplain{}{}]			{\fancyplain{}{}}
+\cfoot[\fancyplain{}{\thepage}]		{\fancyplain{}{\thepage}}
+\rfoot[\fancyplain{}{}]			{\fancyplain{}{}}
+
+% theorem style
+{\theorembodyfont{\rmfamily}\newtheorem{Pro}{{\textbf Proposition}}[section]}
+{\theorembodyfont{\rmfamily}\newtheorem{The}{{\textbf Theorem}}[section]}
+{\theorembodyfont{\rmfamily}\newtheorem{Def}[The]{{\textbf Definition}}}
+{\theorembodyfont{\rmfamily}\newtheorem{Cor}[The]{{\textbf Corollary}}}
+{\theorembodyfont{\rmfamily}\newtheorem{Lem}[The]{{\textbf Lemma}}}
+{\theorembodyfont{\rmfamily}\newtheorem{Exp}{{\textbf Example}}[section]}
+\def\remark{\textbf{Remark}:}
+\def\remarks{\textbf{Remarks}:}
+\def\bproof{\textbf{Proof}: }
+\def\eproof{\hfill$\Box$}

@@ -1,0 +1,84 @@
+% Class options:
+%  Font size: 10pt, 11pt, 12pt (default is 11pt)
+%  Paper sides: oneside, twoside (default is oneside)
+% The default options conform to UoY regulations; keep these unless there is a good reason to do otherwise.
+\documentclass[11pt,twoside]{yorkcsthesis}
+\input{format}
+\input{macros}
+%\addbibresource{thesis.bib}
+
+% add details about your thesis here
+\author{Hao-Ting Wang}
+\title{Towards an Ontology of Spontaneous Thought}
+\degree{PhD}
+\department{Psychology}
+\date{July 2018}
+\yearstarted{2015}
+\yearended{2018}
+\abstract{\contentabstract}
+\acknowledgements{\contentacknowledgement}
+\declaration{\contentdeclaration}
+\abbreviations{\contentabbreviations}
+
+% when working on a chapter, removing other chapters from this list suppresses compilation and hence reduces thesis compile time
+%\includeonly{chapters/study3}
+
+% document structure - comment out any unwanted items
+\begin{document}
+
+%suppress apacite month
+\renewcommand{\APACrefYearMonthDay}[3]{\APACrefYear{#1}}
+
+%document
+\pagenumbering{roman}
+\setcounter{page}{1} % count the title page as pp1
+\maketitle
+\makeabstract
+\tableofcontents
+\setcounter{lofdepth}{1}% Refer to counter options in .cls
+\listoffigures
+\listoftables
+\makeacknowledgements
+\makedeclaration
+
+\cleardoublepage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% include your chapters here
+
+\include{chapters/intro}
+\include{chapters/cca}
+\include{chapters/current}
+\include{chapters/study1}
+\include{chapters/study2}
+\include{chapters/study3}
+\include{chapters/discussion}
+
+% appendices
+\cleardoublepage
+\include{chapters/append}
+
+% definitions and glossaries
+% \cleardoublepage
+% \makeabbreviations
+
+% references
+\cleardoublepage
+
+% make my own title
+\makeatletter
+\let\st@rtbibsection\@bibnewpage
+\let\st@rtbibchapter\@bibnewpage
+\makeatother
+
+\chapter*{References}
+\markboth{References}{}
+\bibliographystyle{apacite}
+\bibliography{thesis.bib}
+
+\addcontentsline{toc}{chapter}{\numberline{}References}
+
+
+% the end
+\end{document}
