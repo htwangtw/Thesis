@@ -42,12 +42,10 @@ We adopted a set of 57 regions based on the Yeo 7 networks. We split the network
 \label{study3:method:e}
 
 \subsubsection{Cognitive tasks}
-We selected X cognitive tasks that are common across the two cohorts and related to the previous literature on mind wandering. The selected tasks includes blah blah. Please refer to Appendix \ref{appendix:study1:subsection2} for the detailed description of the tasks.
+We selected 9 cognitive tasks that are common across the two cohorts. The selected tasks measures cognitive functions that have been examined in previous mind-wandering literature, encompassing executive control (digit span, task switching task), generation of information (unusual uses task, verbal fluency task), semantic memory (semantics relatedness judgement tasks, feature matching task), episodic memory (paired associate task, four mountains task), and fluid intelligence (Raven Advanced Progressive Matrices; RAPM). Thirteen cognitive scores were calculated from the selected tasks. Please refer to Appendix \ref{appendix:study1:subsection2} for the detailed description of the tasks. 
 
 \subsubsection{Experience sampling}
 Please refer to Chapter \ref{ch:study1} section \ref{study1:method:d} for the experience sampling data collection and Table \ref{tab:study1:1} for the detailed questions. 
-
-We did a PCA on the same thought probes to understand the relation within the reports.
 
 
 \subsection{Multivariate pattern analysis}
@@ -60,7 +58,15 @@ SCCA maximised the linear correlation between the low-rank projections of two se
 The amount of L1 penalty for the functional connectomes and cognitive task performance were chosen by cross-validation. The procedure is described below. 
 
 \subsubsection{Model Selection}
-The model selection process was conducted with two parts: 1) hyperparameter selection 2) mode selection. For the hyperparameter, L1 penalties for the left and right hand side, we performed a grid search on all possible penalty coefficients combination with cross validation on the explained variance of the first mode. The objective is determined by the best out-of-sample explained variance of the first mode. We decompose the full dataset with the selected hyper-parameters. Permutation tests with family-wise error correction \cite{Smith2015} was applied to access the mode(s) that occure above chance. 
+The model selection process was conducted with two parts: L1 penalty coefficient selection and component selection. For the L1 penalty coefficient selection, we performed a grid search combined with cross-validation (CV) to avoid over-fitting \cite{BzdokYeo2017}. 
+Of each penalty pair on the search grid, a 10-fold cross-validation was performed to search for the best out-of-sample the rank-1 canonical correlation. We then decomposed the full dataset with the selected L1 penalty coefficients. The K-Fold CV was conducted by the implementation in Python library scikit-learn \cite<http://scikit-learn.org/stable/, version 0.18.2>{scikit-learn}. 
+
+Confound removal was performed on the functional connectomes and the cognitive scores as suggested by prior study \cite{Smith2015}. 
+The confound variables were sex, age, and head motion indicated by mean frame-wise displacement \cite{Jenkinson2002}.
+The  removal  steps  was  performed  on  the training set in each CV fold. The z-scores of the confound variables were calculated, and also squared the three confound measures to account for potentially nonlinear effects of these confounds. The 6 resulting confounds were regressed out of both data matrices. 
+The implementation of the confound removal method \cite{Friston1994} was retrieved from Python library Nilearn \cite[ \url{http://nilearn.github.io/}, version 0.3.1]{Abraham2014}.
+
+After finding the optimal hyper-parameters, 1000 permutation tests with family-wise error correction was applied to access the component(s) that occur above chance. We constructed a null distribution for each canonical component by holding the functional connectivity data in place and randomising the row order of self-reports data. This permutation scheme broke the link of individual differences in the dataset, therefore testing the robustness of the components in the hypothetical population. By calculating the false-discovery rate in the null distribution, we can conclude the possibility of discovering our components by chance with the given penalty coefficients. Hypotheses that are accepted with a 5\% level of significance. In the current analyses we adopt the permutation test with the FWE-corrected p-value by Smith and colleagues \citeyear{Smith2015}. All components were compared to the first sparse canonical correlation of the permuted sample. The low-rank components are more relevant that the rest, therefore we yield more conservative p-value by comparing to the first canonical correlation only. 
 
 \subsection{Group analysis}
 \label{study3:method:g}
@@ -68,22 +74,65 @@ The model selection process was conducted with two parts: 1) hyperparameter sele
 To determine how patterns of unconstrained neuro-cognitive activity related to performance on the self-report experience, we conducted an independent statistical analysis on the identical subjects. A Type III multivariate multiple regression with Pillai's trace test was applied to 5 individual scores for each of the latent components describing the neuro-cognitive mechanism from the SCCA were the independent variables, and the 13 measures from MDES were the dependent variables that we hoped to described by the linear combination of the latent components. Pillai's trace test is considered to be the most powerful and robust statistic for general use \cite{Huberty2006}.
 The p-values reported were based on Bonferroni correction. The analysis was conducted in R (version 3.3.1). The multivariate multiple regression was conducted in R (version 3.3.1) using function ‘Manova’ in R package ‘car’ (companion to applied regression, version 2.1–5).
 
-
 % ==========================================================================================================
-
 \section{Results}
 \label{study3:results}
 
 \subsection{Determining constituent category of cognitive functions}
-% grid search results
-% permutation test results
+
+\begin{wrapfigure}{i}{0.35\textwidth}    
+    \vspace{-20pt}
+    \centering
+    \includegraphics[width=0.33\textwidth]{chapters/img/study3fig1.png}
+	\caption{Grid search.} 
+	\label{fig:study3:fig1}
+	\vspace{-20pt}
+\end{wrapfigure}
+
+Sparse Canonical Correlation Analysis (SCCA) was used to determine connectome-wide dimensions that describe common variance shared by descriptions of brain and experience. This took as input individual scores for the connections between each of the regions extracted from Yeo’s 7 networks parcellation and the 13 cognitive task scores.
+
+We applied SCCA with 10-fold CV and permutation tests as the model selection strategy. We obtained penalty levels of 0.6 on both the functional connectivity and cognitive tasks indicated the best out-of-sample prediction on our data through the grid search (Figure \ref{fig:study3:fig1}). Five significant canonical components was identified through FWE-corrected p-value through permutation tests. The p-values of the 5 components are x, x, x, x, x. The canonical correlations of the 5 latent components were a, b, c, d, and e. Since the sparsity turns CCA into a convex optimisation problem, the modes didn't come out in the descending order of their canonical correlations. The latent components yielded by the best model are presented in Figure \ref{fig:study3:fig2}. For the ease of presentation and interpretation, we summarized the components as network-network connectivity instead of 57-by-57 connectivity matrices. The heat maps describe the network-to-network correlations and the cognitive tasks. 
+
+\begin{figure}[H]
+    \vspace{-10pt}
+	\centering
+	\includegraphics[width=1\textwidth]{chapters/img/study3fig2.png}
+	\caption{Significant components.} 
+	\caption*{
+	\footnotesize{
+	}
+	}
+	\label{fig:study3:fig2}
+	\vspace{-20pt}
+\end{figure}
+
 % explain the significant components
+Component 1 - semantic control is relevant, along with intelligence, and being able to name pictures
+
+Component 7 -  maintaining a pattern of ongoing thought that is relatively pristine in its nature that is free from other irrelevant sources of information
+
+Component 8 - cognitive control, pitting exec tasks against more automatic semantic retrieval. So people who have better control think less detailed past thoughts? 
+
+Component 9 -  mental imagery vs. verbal fluency?
+
+Component 12 - episodic vs. verbal semantic.
 
 \subsection{The relationship between neuro-cognitive components and self-reports on thoughts}
 % multivariate main effect
-% univariate main effects shows resemblance to the PCA
+Three regression models were performed to evaluate the relationship between neuro-cognitive components and self-reports on thoughts: average scores of all thought probes, thought probes in 0-back and 1-back conditions. In the model of all thought probes, we got multivariate main effect in component 7 and 12. In the 0-back condition, only component 7 showed the main effect in multivaraite level. The 1-back condition model showed significant results in component 7 and component 12. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{chapters/img/study3fig3.png}
+	\caption{Univariate results.} 
+	\caption*{
+	\footnotesize{
+	}
+	}
+	\label{fig:study3:fig3}
+\end{figure}
+
 
 % ==========================================================================================================
-
+\newpage
 \section{Discussion}
 \label{study3:discussion}
