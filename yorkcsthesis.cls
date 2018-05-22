@@ -184,11 +184,9 @@
 \newcommand{\makedeclaration}{%
  \newpage
  \thispagestyle{empty}
- \chapter*{Declaration \@mkboth{}{}}
- \addcontentsline{toc}{chapter}{\numberline{}Declaration}
+ \chapter*{Author's Declaration \@mkboth{}{}}
+ \addcontentsline{toc}{chapter}{\numberline{}Author's Declaration}
  \label{declaration}
- \noindent
-	I declare that the research described in this thesis is original work, which I undertook at the University of York during \yearstartedtext{} - \yearendedtext{}. Except where stated, all of the work contained within this thesis represents the original contribution of the author.
 
 	\declarationtext{}
 
