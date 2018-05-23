@@ -46,6 +46,7 @@
 
 % include your chapters here
 
+\include{chapters/outline}
 \include{chapters/literature}
 \include{chapters/cca}
 \include{chapters/current}
@@ -71,12 +72,14 @@
 \let\st@rtbibchapter\@bibnewpage
 \makeatother
 
+\addcontentsline{toc}{chapter}{\numberline{}References}
 \chapter*{References}
 %\markboth{References}{}
 \bibliographystyle{apacite}
+\linespacesmall
 \bibliography{thesis.bib}
 
-\addcontentsline{toc}{chapter}{\numberline{}References}
+
 
 
 % the end
