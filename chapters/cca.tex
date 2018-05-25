@@ -4,111 +4,55 @@
 
 
 \textit{The following chapter has been adapted from:\\}
-Wang, H.-T., Poerio, G. L., Murphy, C. E., Bzdok, D., Jefferies, E., \& Smallwood, J. (2018). Dimensions of Experience: Exploring the Ontology of the Wandering Mind. \textit{Psychological science}, \textit{29} (1), 56-–71. doi: 10.1177/0956797617728727
+Wang, H.-T., Smallwood, J., Bassett, D. S., Satterthwaite, T.D. \& Bzdok, D. (2018). Finding the needle in many dimensions: A tutorial on CCA in biomedicine. Manuscript preparing for publication
 \footnote{
-Contribution goes here
-}\\
+D. Bzdok and H.-T. Wang planned the structure of the manuscript.  H.-T. Wang. drafted the manuscript under the supervision of D. Bzdok. All the authors approved the final version of the manuscript prior to submission.}\\
 % ==========================================================================================================
 \newpage
 %Abstract
 
-\noindent{}Nam auctor neque sed eros iaculis sit amet facilisis tellus tincidunt. Donec quis turpis a purus cursus porta. Nam vel massa nibh, a hendrerit libero. Mauris fringilla, arcu sed molestie cursus, nulla tortor aliquet nisi, et feugiat dui eros id ligula. Donec faucibus sodales nisl, quis interdum libero eleifend at. Sed turpis purus, fringilla quis porttitor id, pulvinar at metus. In hac habitasse platea dictumst. Integer lobortis sodales volutpat. Etiam iaculis euismod porta. Praesent quis venenatis massa. Cras laoreet posuere accumsan. Sed urna quam, laoreet sit amet hendrerit eu, tincidunt eu orci. Praesent eleifend diam sed metus eleifend sit amet volutpat dui interdum.
+\noindent{}Nam auctor neque sed eros iaculis sit amet facilisis tellus tincidunt. Donec quis turpis a purus cursus porta. Nam vel massa nibh, a hendrerit libero. Mauris fringilla, arcu sed molestie cursus, nulla tortor aliquet nisi, et feugiat dui eros id ligula. Donec faucibus sodales nisl, quis interdum libero eleifend at. Sed turpis purus, fringilla quis porttitor id, pulvinar at metus. In hac habitasse platea dictumst. Integer lobortis sodales volutpat. Etiam iaculis euismod porta. Praesent quis venenatis massa. Cras laoreet posuere accumsan. Sed urna quam, laoreet sit amet hendrerit eu, tincidunt eu orci. Praesent eleifend diam sed metus eleifend sit amet volutpat dui interdum. Nam auctor neque sed eros iaculis sit amet facilisis tellus tincidunt. Donec quis turpis a purus cursus porta. Nam vel massa nibh, a hendrerit libero. Mauris fringilla, arcu sed molestie cursus, nulla tortor aliquet nisi, et feugiat dui eros id ligula. Donec faucibus sodales nisl, quis interdum libero eleifend at. Sed turpis purus, fringilla quis porttitor id, pulvinar at metus. In hac habitasse platea dictumst. Integer lobortis sodales volutpat. Etiam iaculis euismod porta. Praesent quis venenatis massa. Cras laoreet posuere accumsan. Sed urna quam, laoreet sit amet hendrerit eu, tincidunt eu orci. Praesent eleifend diam sed metus eleifend sit amet volutpat dui interdum.
+
 
 % ==========================================================================================================
 
-\section{Introduction}
-\label{ch2:intor}
-The recent emergence of massive biomedical datasets and the increasing computational power have opened the door to a new regime of data analysis. Similar to the advent of microarrays in genetics, brain-imaging and extensive behavioral phenotyping yield high dimensional data spaces that proceed those medicine and neuroscience ever had in the 20th century (Efron, 2012). For instance, UK Biobank is a longitudinal population study with 500,000 participants and comprehensive measures on genetic and environmental influence on mental disorders and other medical conditions (Allen et al., 2012; Miller et al., 2016). Many classical linear regression variants that contributed in the advance of neuroimaging in the past have not initially be designed to solve the questions in high dimensional data. Many classical statistical tools, that have serves neuroscientists and medical researchers well, struggle with increasing data richness. The growing interest in big datasets will soon motivate researchers to seek alternative tools to ask and answer research questions in challenging rich data. 
-This current tutorial paper provides introduction, promises, and pitfalls of one type of analysis that enables simultaneous evaluation of several sources of high-dimensional information on brain and behavior: Canonical correlation analysis (CCA). CCA is capable of handling abundant variables at once because this method find sources of variation in two high-dimensional matrices in parallel. Despite being an early example of multivariate statistical methods introduced in 1936 (Hotelling, 1936), CCA use has been dormant in the meanwhile because of insufficient computation power and data size. The recent emergence of large scale biomedical dataset and powerful computers provide the 21st century is currently leading to a revival of CCA usage researchers the best tools to utilize the canonical correlation analysis. CCA may better reflect the reality of research studies in high dimensional data. The complexity of research studies involving complex phenomena of brain and behavior may suggest multiple variables that represent a concept, and thus create problems when the variables are examined separately. Especially when many variables provides views on a research question, two or more salient relationships are likely to underlying the data. With the growing number of large scale dataset and the pursuit of complex research questions, CCA has gained lots of interests from the researchers in the field. CCA has proven be inspirational methodology for new and continuing research (Marquand, Haak, \& Beckmann, 2017; Smith et al., 2015; Wang et al., 2018) with its ability to simultaneously handle two or more input vectors of data collected on the same participants. 
-In this paper we provide a guide to CCA with four parts. We first introduce the model in details and the circumstances of use. Secondly we would give some establish applications of CCA in existing research and demonstrate analysis with existing code library. Next we introduce the expansion of the CCA algorithm and the relation of CCA to other modeling technique. Finally we discuss the limitation of CCA.
-
+\section{Motivation}
+\label{CCA:motivation}
 
 % ==========================================================================================================
 
 \section{Modelling intuitions}
-\label{ch2:intuitions}
-Integer vulputate vulputate imperdiet. Integer varius elementum urna id hendrerit. Nulla vitae ante leo, id tincidunt purus. Praesent quam lacus, semper vitae tristique pulvinar, gravida sit amet sem. Sed porttitor orci nec orci sodales ac malesuada felis consequat. Aliquam erat volutpat. Cras dapibus dignissim neque non convallis. Ut quis tellus arcu, vitae fermentum orci. Nunc pharetra leo at odio posuere ac pretium odio blandit. Nulla pellentesque tincidunt gravida. 
+\label{cca:intuitions}
 
-Phasellus quis metus vel lectus porta vehicula ut eu felis. Mauris libero velit, egestas vel tempus eget, iaculis sit amet magna. Proin accumsan semper consectetur. Nulla et euismod augue. Proin lacus sapien, convallis nec placerat at, vulputate eu massa. Etiam nisi dui, consequat in consequat eget, posuere vel velit. Mauris accumsan venenatis facilisis.
-
-\subsection{The first subsection}
-\label{ch2:first:a}
-Aliquam imperdiet est id nulla fringilla vel luctus tellus pretium. Aliquam tincidunt ante nec lacus ullamcorper placerat. In bibendum, turpis vitae dapibus interdum, elit quam tempus nisi, ac vestibulum nulla nisl vel mauris. Nullam ut diam nisi. Vestibulum vitae eros sed felis fermentum ultrices. Integer tincidunt, justo vel luctus gravida, leo erat placerat ipsum, sit amet condimentum diam massa ac ligula. 
-
-Etiam nec ullamcorper lectus. Quisque auctor libero facilisis risus volutpat vitae auctor felis fermentum. Mauris non sapien eget metus laoreet lacinia eget ac magna. Sed sed leo leo. Curabitur in est at quam condimentum semper sit amet sed ipsum. Nam neque est, auctor posuere varius ac, bibendum sit amet urna. 
-
-Nunc lobortis tortor id orci molestie pulvinar suscipit ipsum mattis. Maecenas auctor mi mauris. Nunc condimentum lectus eu libero ornare commodo. Mauris cursus felis quis nunc ornare a blandit sem commodo. Vestibulum eu neque ut est hendrerit condimentum. Ut nisl mi, tristique ut malesuada aliquet, imperdiet a quam. Nam malesuada accumsan massa, sit amet ullamcorper ante mattis at.
-
-\subsection{The second subsection}
-\label{ch2:first:b}
-Donec nec arcu lacus, ut dictum purus. Suspendisse tristique turpis vitae enim semper non facilisis ligula posuere. Nulla nulla arcu, pharetra eget bibendum consectetur, eleifend ut tellus. Proin ac tortor erat, quis facilisis leo. Nulla sit amet tellus eu sapien tempus tempor. Vestibulum vehicula lacinia dui non iaculis. 
-
-Pellentesque massa velit, mollis eu lacinia euismod, bibendum sed purus. Duis neque enim, accumsan id euismod ac, pharetra iaculis justo. Cras volutpat, massa id ullamcorper aliquam, ligula dui ultricies libero, id tristique justo magna ac lectus. Suspendisse et aliquet tortor. In non nisl orci, id volutpat odio. 
-
-Maecenas condimentum tincidunt nunc, vitae convallis metus tristique eget. Ut vel mi sed eros sagittis dapibus. Maecenas nibh purus, eleifend vel vulputate in, vehicula at dui. Fusce nec nunc tellus, ac vehicula risus. Aenean semper ligula vitae nisl volutpat tincidunt. Sed id erat vel leo dapibus commodo eget sit amet turpis. Mauris sed eros ac magna egestas volutpat ut a dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-\subsection{The third subsection}
-\label{ch2:first:c}
-Curabitur volutpat dictum arcu nec porta. Praesent nec nunc at dolor faucibus laoreet. Sed sollicitudin nisl et urna auctor nec aliquam ipsum auctor. Morbi elementum tortor non sapien ultricies sed lobortis augue fermentum. Suspendisse elit nisl, scelerisque nec iaculis vel, rutrum lobortis tellus. Fusce porta, justo eu venenatis tincidunt, purus lorem malesuada orci, in gravida est nisl a massa. Ut facilisis felis a ante rhoncus gravida mollis felis mattis. Etiam convallis augue sit amet magna tristique tristique. 
-
-Aliquam imperdiet magna at sem adipiscing quis elementum nunc tincidunt. Nulla facilisi. Donec vitae tellus lectus. Proin dapibus ornare scelerisque. Suspendisse mollis massa vitae sapien volutpat feugiat. Vivamus eu est id diam sollicitudin viverra. Donec sit amet ipsum mauris, eget semper augue. In blandit viverra lobortis. Curabitur lacinia pharetra tincidunt. Etiam porttitor orci quis diam molestie pretium. Ut vel nisi odio, et condimentum sem.
-
-\subsection{The fourth subsection}
-\label{ch2:first:d}
-Maecenas eu massa ac quam congue congue sed ac lorem. Nulla luctus libero id massa faucibus id ornare elit scelerisque. Maecenas adipiscing gravida arcu, non adipiscing dolor sagittis sit amet. Curabitur tristique odio at nisi consectetur cursus. Vivamus a nunc vel mauris ornare faucibus ut eget eros. Quisque egestas purus ac risus tempor non rhoncus odio sodales. 
-
-Nulla tincidunt laoreet aliquam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed vel magna et nisl placerat semper. Praesent id nulla neque. Aenean tempor volutpat libero ac rhoncus. Integer sollicitudin est at enim lacinia molestie. Donec vel tincidunt magna. Integer iaculis semper vehicula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ullamcorper blandit libero ac commodo.
 
 % ==========================================================================================================
 
-\section{The second section}
-\label{ch2:second}
-Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed ut velit id velit condimentum feugiat. Pellentesque nibh enim, malesuada in laoreet non, dapibus ac metus. 
+\section{Examples}
+\label{cca:examples}
 
-Morbi ultricies, orci nec convallis semper, diam metus varius nibh, quis ultrices neque libero sed metus. Duis mollis congue faucibus. Phasellus a augue non ligula commodo viverra eu vitae mi. 
-
-Integer vehicula nunc lacus. Pellentesque nec lorem enim, vel molestie lorem. Donec a magna velit, quis tincidunt libero. Nulla facilisi. Maecenas interdum elit dui. Fusce sollicitudin faucibus pulvinar.
-
-\subsection{The first subsection}
-\label{ch2:second:a}
-Aliquam imperdiet est id nulla fringilla vel luctus tellus pretium. Aliquam tincidunt ante nec lacus ullamcorper placerat. In bibendum, turpis vitae dapibus interdum, elit quam tempus nisi, ac vestibulum nulla nisl vel mauris. Nullam ut diam nisi. Vestibulum vitae eros sed felis fermentum ultrices. Integer tincidunt, justo vel luctus gravida, leo erat placerat ipsum, sit amet condimentum diam massa ac ligula. 
-
-Etiam nec ullamcorper lectus. Quisque auctor libero facilisis risus volutpat vitae auctor felis fermentum. Mauris non sapien eget metus laoreet lacinia eget ac magna. Sed sed leo leo. Curabitur in est at quam condimentum semper sit amet sed ipsum. Nam neque est, auctor posuere varius ac, bibendum sit amet urna. 
-
-Nunc lobortis tortor id orci molestie pulvinar suscipit ipsum mattis. Maecenas auctor mi mauris. Nunc condimentum lectus eu libero ornare commodo. Mauris cursus felis quis nunc ornare a blandit sem commodo. Vestibulum eu neque ut est hendrerit condimentum. Ut nisl mi, tristique ut malesuada aliquet, imperdiet a quam. Nam malesuada accumsan massa, sit amet ullamcorper ante mattis at.
-
-\subsection{The second subsection}
-\label{ch2:second:b}
-Donec nec arcu lacus, ut dictum purus. Suspendisse tristique turpis vitae enim semper non facilisis ligula posuere. Nulla nulla arcu, pharetra eget bibendum consectetur, eleifend ut tellus. Proin ac tortor erat, quis facilisis leo. Nulla sit amet tellus eu sapien tempus tempor. Vestibulum vehicula lacinia dui non iaculis. 
-
-Pellentesque massa velit, mollis eu lacinia euismod, bibendum sed purus. Duis neque enim, accumsan id euismod ac, pharetra iaculis justo. Cras volutpat, massa id ullamcorper aliquam, ligula dui ultricies libero, id tristique justo magna ac lectus. Suspendisse et aliquet tortor. In non nisl orci, id volutpat odio. 
-
-Maecenas condimentum tincidunt nunc, vitae convallis metus tristique eget. Ut vel mi sed eros sagittis dapibus. Maecenas nibh purus, eleifend vel vulputate in, vehicula at dui. Fusce nec nunc tellus, ac vehicula risus. Aenean semper ligula vitae nisl volutpat tincidunt. Sed id erat vel leo dapibus commodo eget sit amet turpis. Mauris sed eros ac magna egestas volutpat ut a dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-\subsection{The third subsection}
-\label{ch2:second:c}
-Curabitur volutpat dictum arcu nec porta. Praesent nec nunc at dolor faucibus laoreet. Sed sollicitudin nisl et urna auctor nec aliquam ipsum auctor. Morbi elementum tortor non sapien ultricies sed lobortis augue fermentum. Suspendisse elit nisl, scelerisque nec iaculis vel, rutrum lobortis tellus. Fusce porta, justo eu venenatis tincidunt, purus lorem malesuada orci, in gravida est nisl a massa. Ut facilisis felis a ante rhoncus gravida mollis felis mattis. Etiam convallis augue sit amet magna tristique tristique. 
-
-Aliquam imperdiet magna at sem adipiscing quis elementum nunc tincidunt. Nulla facilisi. Donec vitae tellus lectus. Proin dapibus ornare scelerisque. Suspendisse mollis massa vitae sapien volutpat feugiat. Vivamus eu est id diam sollicitudin viverra. Donec sit amet ipsum mauris, eget semper augue. In blandit viverra lobortis. Curabitur lacinia pharetra tincidunt. Etiam porttitor orci quis diam molestie pretium. Ut vel nisi odio, et condimentum sem.
-
-\subsection{The fourth subsection}
-\label{ch2:second:d}
-Maecenas eu massa ac quam congue congue sed ac lorem. Nulla luctus libero id massa faucibus id ornare elit scelerisque. Maecenas adipiscing gravida arcu, non adipiscing dolor sagittis sit amet. Curabitur tristique odio at nisi consectetur cursus. Vivamus a nunc vel mauris ornare faucibus ut eget eros. Quisque egestas purus ac risus tempor non rhoncus odio sodales. 
-
-Nulla tincidunt laoreet aliquam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed vel magna et nisl placerat semper. Praesent id nulla neque. Aenean tempor volutpat libero ac rhoncus. Integer sollicitudin est at enim lacinia molestie. Donec vel tincidunt magna. Integer iaculis semper vehicula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ullamcorper blandit libero ac commodo.
 
 % ==========================================================================================================
 
-\section{Summary}
-\label{ch2:summary}
-Vivamus blandit varius accumsan. Maecenas in lectus in ipsum fringilla tempus id sit amet nulla. Curabitur congue imperdiet odio, vel laoreet nisl ullamcorper at. Praesent vel erat augue, vitae ullamcorper velit. Cras tempus, purus non pellentesque consequat, tellus nulla cursus dui, id porta ante leo nec dui. In eget nibh vitae libero congue gravida non a ipsum. 
+\section{Interpretations}
+\label{cca:interpretations}
 
-Mauris ac nulla eros. Maecenas laoreet, enim ornare rutrum facilisis, augue neque iaculis lorem, id pulvinar nibh leo at nisi. Sed purus dui, sagittis quis fringilla et, placerat nec elit. Proin ultrices odio sit amet quam rhoncus mollis. Ut convallis ligula a ligula sodales ornare. Phasellus ultrices mauris ac tellus cursus porttitor. 
 
-Aliquam aliquam, tortor sed facilisis interdum, sapien ipsum malesuada enim, quis mattis libero lectus non mi. Donec lacinia mauris sit amet risus sagittis sodales. Suspendisse id sapien ipsum. Etiam sit amet neque non mauris tristique mattis.
+% ==========================================================================================================
 
-Nam lobortis tellus lacus, vitae dignissim est. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas eu risus massa. Ut at dui et sapien eleifend ultricies. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla ullamcorper vehicula tempor. 
+\section{Limitations}
+\label{cca:limitations}
 
-Donec turpis risus, luctus a suscipit sit amet, scelerisque sit amet libero. Morbi porta sollicitudin libero nec ornare. Curabitur semper tellus id urna dictum varius. Quisque at eros vitae elit pharetra tristique et sit amet enim. In ornare varius leo nec elementum. Duis elementum tellus in nisi ultrices sit amet vehicula dui faucibus. Aliquam vel elit id risus pulvinar pretium. 
 
-Curabitur at mauris felis, quis varius dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam id posuere lorem. Donec ut aliquet nisi.
+% ==========================================================================================================
+
+\section{Relation to other commonly used methods}
+\label{cca:other}
+
+
+% ==========================================================================================================
+
+\section{Practical considerations}
+\label{cca:impliment}
+
+
+% ==========================================================================================================

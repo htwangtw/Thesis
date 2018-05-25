@@ -87,7 +87,6 @@ The Unusual Uses Task \cite{Guilford1967} assessed divergent thinking and creati
 \label{appendix:study1:subsection3}
 
 \begin{table}[htbp]
-\label{tab:S1}
 \caption{Correlation between motion parameter (Mean FD Jenkinson) and variable of interests}
 \resizebox{\textwidth}{!}{
   \begin{threeparttable}
@@ -106,6 +105,7 @@ The Unusual Uses Task \cite{Guilford1967} assessed divergent thinking and creati
 
     \end{tablenotes}
   \end{threeparttable}
+  \label{tab:S1}
 }
 \end{table}
 % ==========================================================================================================
@@ -138,79 +138,37 @@ The Unusual Uses Task \cite{Guilford1967} assessed divergent thinking and creati
 	\label{fig:3S4}
 \end{figure}
 % ==========================================================================================================
-\chapter{Nested K-Fold Cross-Validation}
+\chapter{Patterns of thought: Nested K-Fold Cross-Validation}
 \label{appendix:kfold}
-
-
-% ==========================================================================================================
-%
-%\ref{algorithm:example:1}.
-%
-%\linespacesmall
-%\begin{algorithm}[htb]\footnotesize
-%\begin{algorithmic}[1]
-%\parbox{15.0cm}
-%{
-%\REQUIRE $n \geq 0 \vee x \neq 0$
-%\ENSURE $y = x^n$
-%\STATE $y \Leftarrow 1$
-%\IF{$n < 0$}
-%\STATE $X \Leftarrow 1 / x$
-%\STATE $N \Leftarrow -n$
-%\ELSE
-%\STATE $X \Leftarrow x$
-%\STATE $N \Leftarrow n$
-%\ENDIF
-%\WHILE{$N \neq 0$}
-%\IF{$N$ is even}
-%\STATE $X \Leftarrow X \times X$
-%\STATE $N \Leftarrow N / 2$
-%\ELSE[$N$ is odd]
-%\STATE $y \Leftarrow y \times X$
-%\STATE $N \Leftarrow N - 1$
-%\ENDIF
-%\ENDWHILE
-%}
-%\end{algorithmic}
-%\caption{: An example algorithm}
-%\label{algorithm:example:1}
-%\end{algorithm}
-%\linespacenormal 
-
-% ==========================================================================================================
-
-
 
 \linespacesmall
 \begin{algorithm}[htb]\footnotesize
 \begin{algorithmic}[1]
 \parbox{15.0cm}
 {
-\REQUIRE $n \geq 0 \vee x \neq 0$
-\ENSURE $y = x^n$
-\STATE $y \Leftarrow 1$
-\IF{$n < 0$}
-\STATE $X \Leftarrow 1 / x$
-\STATE $N \Leftarrow -n$
-\ELSE
-\STATE $X \Leftarrow x$
-\STATE $N \Leftarrow n$
-\ENDIF
-\WHILE{$N \neq 0$}
-\IF{$N$ is even}
-\STATE $X \Leftarrow X \times X$
-\STATE $N \Leftarrow N / 2$
-\ELSE[$N$ is odd]
-\STATE $y \Leftarrow y \times X$
-\STATE $N \Leftarrow N - 1$
-\ENDIF
-\ENDWHILE
+\FOR{\textit{Each outer fold k}} 
+    \FOR{\textit{Each parameter set}} 
+        \STATE Separate the development set into j folds. 
+        \FOR{\textit{Each inner fold j}}  
+                \STATE Train the model on the training set
+                \STATE Calculate test error in the validation set j
+        \ENDFOR
+        \STATE Compute the average inner cross-validation test error
+    \ENDFOR
+    
+    \STATE Choose the best parameter set with minimum average test error.
+    \STATE Use this parameter set to train on the development set.
+    \STATE Calculate test error in the test set
+\ENDFOR
+\STATE Determine the optimal model based on the outer fold test error 
+\STATE Train the full dataset on the optimal model
 }
 \end{algorithmic}
-\caption{: An example algorithm}
-\label{algorithm:example:2}
+\caption{: Nested k-fold cross-validation}
+\label{algorithm:1}
 \end{algorithm}
 \linespacenormal
 
 % ==========================================================================================================
+
 
