@@ -35,8 +35,8 @@
 \setlength{\marginparpush}{0mm}
 \setlength{\hoffset}{-1in} % undo the extra inch added by default by LaTeX
 \setlength{\oddsidemargin}{38mm}
-\setlength{\evensidemargin}{22mm}
-\setlength{\textwidth}{150mm}
+\setlength{\evensidemargin}{38mm}
+\setlength{\textwidth}{134mm}
 \setlength{\topmargin}{15mm}
 \setlength{\headheight}{15pt}
 \setlength{\headsep}{16pt}
