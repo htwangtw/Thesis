@@ -64,9 +64,9 @@ Multi-dimensional experience sampling (MDES) was use to collect thoughts during 
 \label{study3:method:f}
 \subsubsection{SCCA}
 We performed a sparse canonical correlation analysis \cite<SCCA; see>{Hastie2015} %{ Hastie, Tibshirani, \& Wainwright, 2015} 
-on the functional connectomes and the cognitive tasks, to yield latent components that reflect multivariate patterns across neural organisation and cognition \cite<For similar application, see>{Wang2018}. %Wang et al., 2017). 
+on the functional connectomes and the cognitive tasks, to yield latent components that reflect multivariate patterns across neural organisation and cognition \cite<For similar application, see>{WangPsychScience2018}. %Wang et al., 2017). 
 SCCA maximised the linear correlation between the low-rank projections of two sets of multivatiate data sets with sparse model to regularise the decomposition solutions a process that helps maximise the interpretability of the results. The regularisation function of choice is L1 penalty, which produces ‘sparse’ coefficients, meaning that the canonical vectors (i.e., translating from full variables to a data matrix’s low-rank components of variation) will contain a number of exactly zero elements. L1 regularisation conducted (a) feature selection (i.e., select only relevant components) and (b) model estimation (i.e., determine what combination of components best disentangles the neuro-cognitive relationship) in an identical process. This way we handle adverse behaviours of classical linear models in high-dimensional data. A reliable and robust open-source implementation of the SCCA method was retrieved as R package from CRAN 
-\cite<PMA, penalized multivariate analysis, version 1.0.9>{Witten2009a}. %(PMA, penalized multivariate analysis, version 1.0.9, Witten, Tibshirani, \& Hastie, 2009).
+\cite<PMA, penalized multivariate analysis, version 1.0.9>{Witten2009}. %(PMA, penalized multivariate analysis, version 1.0.9, Witten, Tibshirani, \& Hastie, 2009).
 The amount of L1 penalty for the functional connectomes and cognitive task performance were chosen by cross-validation. The procedure is described below. 
 
 \subsubsection{Model Selection}
