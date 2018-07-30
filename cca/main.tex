@@ -24,13 +24,18 @@ Many classical linear-regression approaches have much contributed in the advance
 Our guide to CCA proceeds in four parts. We first introduce the model in details and the circumstances of use with recent applications of CCA in existing research. Next, we detail the interpretation spectrum of the CCA algorithm including limitation and pitfalls of CCA, and its similarity to other modeling technique. In closing, we provide practical suggestions of analysis.
 
 % ==========================================================================================================
-
+\linespacesmall
 \begin{shaded}
 \footnotesize
 \subsubsection*{Box 2.1 CCA and general linear model (GLM)}
 \label{box:1}
+\begin{minipage}[t]{1\textwidth}
+\begin{multicols}{2}
 CCA can be framed as a general example of other statistical procedures that are derived from the general linear model (GLM). Virtually all of the parametric tests most often used by behavioral scientists (e.g., ANOVA, MANOVA, multiple regression, Pearson correlation, t-test) can be subsumed by CCA as special cases in the GLM (Knapp, 1978; Thompson, 2010). Because these techniques are intricately related and fundamentally the same in many respects of CCA, learning CCA may help facilitate conceptual understanding of statistical methods throughout the GLM.
+\end{multicols}
+\end{minipage}
 \end{shaded}
+\linespacenormal
 
 \section{Modelling intuitions}
 \label{cca:intuitions}
@@ -55,18 +60,24 @@ Smith and colleague (Smith et al., 2015; see Figure 2 for the analysis pipeline)
 Wang and colleagues (Wang et al., 2018; see Figure 3 for the analysis pipeline) uncover the relation between DMN and mind wandering. Mind wandering is associated with poorer performance on attention demanding tasks (McVay \& Kane, 2009; Mrazek et al., 2012), yet studies of problem solving suggest that mind wandering may promote creativity (Baird et al., 2012; Smeekens \& Kane, 2016). Despite the heterogeneity of functional outcomes, task-unrelated thoughts during mind wandering are linked to concurrent increases in DMN activity (see review from Smallwood \& Schooler, 2015). DMN is most commonly known as a task-negative network (Fox et al., 2005); however, emerging evidences suggested DMN’s role in information integration (Margulies et al., 2016). This study further explored whether the different within-DMN activation patterns underlie different types of mind wandering thought, resulting in conflicting associations to cognitive function in the mind-wandering literatures. The connectivity among 16 DMN regions and 13 self-report questions on thoughts entered the sparse variation of CCA (Witten, Tibshirani, \& Hastie, 2009). Two stable modes corresponded to traits of positive-habitual thoughts and spontaneous task-unrelated thoughts with different neural connectivity patterns in the DMN. The modes were uniquely related to aspects of cognition, such as executive control and the ability to generate information in a creative fashion, and independently distinguished well-being measures. The conflicted mind-wandering related executive failure and creativity related benefits was resolved including neural data in spontaneous thoughts decomposition. Wang and colleagues (Wang et al., 2018) showed that mind wandering is a collective term for various types of spontaneous thought. Different brain instantiations located in the DMN is the key to identify different types of spontaneous thought. The different configurations of DMN also demonstrated its possible role as an integrator in cognition, rather than a task-unrelated network. 
 
 % ==========================================================================================================
+\linespacesmall
 \begin{shaded}
 \footnotesize
 \subsubsection*{Box 2.2 CCA and related linear methods}
 \label{box:2}
 
+\begin{minipage}[t]{1\textwidth}
+\begin{multicols}{2}
 CCA is related to other feature learning methods in neuroscience. As mentioned in the modelling intuition section, \textbf{PCA} is a similar method performed on one set of variables only. The objective of PCA is a transformation of several possibly correlated variables into a smaller number of uncorrelated variables known as principal components. PCA compresses data into a smaller number of factors that carries most of the variance of the data.
 
 \textbf{Independent component analysis} (ICA) to perform a linear transform that makes the resulting variables as statistically independent from each other as possible. The basic assumption behind ICA is that the data is composed of independent source of information. In contrast to PCA and CCA, all components are equally important.  ICA helps when you want to find a representation of your data as independent sub-elements
 
 \textbf{Partial least squares} (PLS) regression and CCA are both techniques for feature extraction from two sets of multidimensional variables. The fundamental difference between CCA and PLS is that CCA maximizes the correlation while PLS maximizes the covariance. PLS is a supervised approach attempts to find directions that help explain both the response and the predictors. Most of the comparison between PLS and CCA are focused on the generation of the first components. There is no one way to compute the other components in PLS (De Bie et al., 2005). 
 
+\end{multicols}
+\end{minipage}
 \end{shaded}
+\linespacenormal
 
 \section{Interpretations}
 \label{cca:interpretations}
@@ -85,17 +96,25 @@ The strength and benefit of CCA do not come without limitations. Here we discuss
 
 The structure of CCA is essentially a linear model, hence some limitations stem from the assumptions of normality and linearity. CCA can accommodate any metric variable without the strict assumption of normality. However, normality is desirable because it allows for the highest correlation among the variables. It is highly recommended to evaluate the normality of all variables and apply data transformation if possible. CCA uncover the linear relationships among the variables of interest. The linear assumption introduces two limitations to CCA. Firstly, since only linear effects can be captured, non-linear effects will not be captured. Data transformation or alternative CCA variation would be the solutions (see Relation to other commonly used methods). Secondly, the optimization objective is about correlation in CCA (i.e. see Interpretation). The discovered relationships are not necessarily accurate predictions in future data. Any interpretation and application related to predictability of the canonical components should be treated with caution. 
 
+\linespacesmall
 \begin{shaded}
-    \footnotesize
-    \subsubsection*{Box 2.3 Overcoming the limitations of linear CCA}
-    \label{box:3}
-    
-    Several useful extensions of CCA has emerged in the past decade to overcome the limitation of the linear version of CCA. The first was the nonlinear version of CCA, with \textbf{kernelization of CCA} (KCCA; Hardoon et al., 2004) as the representative.  Kernels are methods of implicitly mapping data into a higher-dimensional feature space with kernel function, a method known as the kernel trick. KCCA first project the data into a higher-dimensional feature space before performing CCA in the new feature space.  While KCCA allows learning of nonlinear representations, the drawback is that the representation is limited by the fixed kernel. KCCA is a nonparametric method, hence, the time required to train KCCA or compute the representations of new data points scales poorly with the size of the training set.
-    
-    \textbf{Sparse CCA} (SCCA; Witten \& Tibshirani, 2009) is a method for identifying sparse linear combinations of the two sets of variables that are highly correlated with each other. It has been shown to be useful in the analysis of high-dimensional data, when the variable number of either arrays is higher than the number of samples. The sparse feature reduces the some coefficients to 0 in the linear structure depending on the penalty parameters. The benefit of sparsity is improvement in interpretation and feature selection. However, sparsity violates the orthogonality of CCA, meaning the components in different modes can correlate with each other. The explained variance of each mode will not follow the rank order either. Recently, we have used k-fold cross validation to identify the ideal level of sparsity in a study that explores the relationship between patterns of thought at rest and the associated brain organization (Wang, Bzdok et al., 2018). 
-    
-    With the recent advance in deep neural network, \textbf{deep CCA} (DCCA; Andrew et al., 2013) has been proposed as an alternative to KCCA as a non-linear method for CCA. Deep neural network is an algorithm that learns the representation of data through multiple non-linear transformations. The name came from the architecture that loosely follows the connections of neurons. DCCA simultaneously learns two deep neural network mappings of two variable sets that are maximally correlated. The main advantage is the faster performance over KCCA, because DCCA directly learns the data without re-mapping data into a higher dimension. 
+\footnotesize
+\subsubsection*{Box 2.3 Overcoming the limitations of linear CCA}
+\label{box:3}
+
+\begin{minipage}[t]{1\textwidth}
+
+\begin{multicols}{2}
+Several useful extensions of CCA has emerged in the past decade to overcome the limitation of the linear version of CCA. The first was the nonlinear version of CCA, with \textbf{kernelization of CCA} (KCCA; Hardoon et al., 2004) as the representative.  Kernels are methods of implicitly mapping data into a higher-dimensional feature space with kernel function, a method known as the kernel trick. KCCA first project the data into a higher-dimensional feature space before performing CCA in the new feature space.  While KCCA allows learning of nonlinear representations, the drawback is that the representation is limited by the fixed kernel. KCCA is a nonparametric method, hence, the time required to train KCCA or compute the representations of new data points scales poorly with the size of the training set.
+
+\textbf{Sparse CCA} (SCCA; Witten \& Tibshirani, 2009) is a method for identifying sparse linear combinations of the two sets of variables that are highly correlated with each other. It has been shown to be useful in the analysis of high-dimensional data, when the variable number of either arrays is higher than the number of samples. The sparse feature reduces the some coefficients to 0 in the linear structure depending on the penalty parameters. The benefit of sparsity is improvement in interpretation and feature selection. However, sparsity violates the orthogonality of CCA, meaning the components in different modes can correlate with each other. The explained variance of each mode will not follow the rank order either. Recently, we have used k-fold cross validation to identify the ideal level of sparsity in a study that explores the relationship between patterns of thought at rest and the associated brain organization (Wang, Bzdok et al., 2018).
+
+With the recent advance in deep neural network, \textbf{deep CCA} (DCCA; Andrew et al., 2013) has been proposed as an alternative to KCCA as a non-linear method for CCA. Deep neural network is an algorithm that learns the representation of data through multiple non-linear transformations. The name came from the architecture that loosely follows the connections of neurons. DCCA simultaneously learns two deep neural network mappings of two variable sets that are maximally correlated. The main advantage is the faster performance over KCCA, because DCCA directly learns the data without re-mapping data into a higher dimension. 
+\end{multicols}
+\end{minipage}
 \end{shaded}
+\linespacenormal
+
 
 
 % ==========================================================================================================
