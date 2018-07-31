@@ -23,11 +23,13 @@
 \usepackage{booktabs}
 \usepackage[font=small,
 			labelfont=bf,labelsep=period]{caption}
+\usepackage{cleveref}
+\usepackage[usenames, dvipsnames]{color}
+\definecolor{shaded}{gray}{0.9}
+
 \usepackage{doi}
 \usepackage{epic}
 \usepackage{epsfig}
-\usepackage{framed, color}
-\definecolor{shadecolor}{rgb}{0.8,0.8,0.8}
 \usepackage{graphicx}
 \usepackage{ifthen}
 \usepackage{latexsym}
@@ -37,12 +39,15 @@
 \usepackage{paralist}
 \usepackage{pdfpages}
 \usepackage{rotating}
+\usepackage{sectsty}
 \usepackage{siunitx}
-\usepackage{subfigure}
 \usepackage{theorem}
 \usepackage[flushleft]{threeparttable}
 \usepackage{units}
 \usepackage{wrapfig}
+
+\usepackage{mdframed}
+\usepackage{chngcntr}
 
 % Select fonts here; leave all commented to use LaTeX defaults (Computer Modern family)
 % I found Computer Modern family really difficult to read on screen
@@ -77,3 +82,25 @@
 \def\remarks{\textbf{Remarks}:}
 \def\bproof{\textbf{Proof}: }
 \def\eproof{\hfill$\Box$}
+
+%info box
+\newcounter{ib}[chapter]
+\counterwithin{ib}{chapter}
+
+\newmdenv[backgroundcolor=shaded,
+        linewidth=0,
+        skipabove=12,
+        innertopmargin=-14,
+        frametitlerule=false
+        ]{info}
+
+\newenvironment{infobox}[1]
+{\stepcounter{ib}%
+ \begin{info}[frametitle=Box~\theib~#1]
+    \noindent
+    \linespacesmall
+    \footnotesize
+    \begin{multicols}{2}}
+{\end{multicols}
+    \linespacenormal
+    \end{info}}
