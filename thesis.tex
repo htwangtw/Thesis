@@ -26,6 +26,7 @@
 \begin{document}
 
 %suppress apacite month
+%temporary solution
 \renewcommand{\APACrefYearMonthDay}[3]{\APACrefYear{#1}}
 
 %document
@@ -59,21 +60,8 @@
 % \makeabbreviations
 
 % references
-\cleardoublepage
-% make my own title
-\makeatletter
-\let\st@rtbibsection\@bibnewpage
-\let\st@rtbibchapter\@bibnewpage
-\makeatother
-
-\addcontentsline{toc}{chapter}{\numberline{}References}
-\chapter*{References}
-%\markboth{References}{}
-\bibliographystyle{apacite}
 \linespacesmall
-%\bibliography{thesis.bib}
-% use mendeley auto sync for now
+\bibliographystyle{apacite}
 \bibliography{mendeley_v2.bib}
-
 % the end
 \end{document}

@@ -224,25 +224,13 @@
 }
 
 % Bibliography
-\renewenvironment{thebibliography}[1]
-     {\chapter*{\bibname
-        \@mkboth{\bibname}{\bibname}}%
-      \list{\@biblabel{\@arabic\c@enumiv}}%
-           {\settowidth\labelwidth{\@biblabel{#1}}%
-            \leftmargin\labelwidth
-            \advance\leftmargin\labelsep
-            \@openbib@code
-            \usecounter{enumiv}%
-            \let\p@enumiv\@empty
-            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
-      \sloppy
-      \clubpenalty4000
-      \@clubpenalty \clubpenalty
-      \widowpenalty4000%
-      \sfcode`\.\@m}
-     {\def\@noitemerr
-       {\@latex@warning{Empty `thebibliography' environment}}%
-      \endlist}
+\let\oldbibliography\bibliography
+\renewcommand\bibliography[1]{%
+ \renewcommand\bibname{References}
+ \cleardoublepage
+ \addcontentsline{toc}{chapter}{\numberline{}\bibname}
+ \oldbibliography{#1}
+}
 
 % Table Of Contents counter options
 % Current settings: subsubsections are numbered on pages, but not listed in TOC
