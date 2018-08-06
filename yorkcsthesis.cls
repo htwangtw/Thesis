@@ -151,7 +151,6 @@
  \thispagestyle{empty}
  \chapter*{Abstract \@mkboth{}{}}
  \addcontentsline{toc}{chapter}{\numberline{}Abstract}
- \noindent
  \abstracttext{}
 }
 
@@ -162,7 +161,6 @@
  \thispagestyle{empty}
  \chapter*{Acknowledgements \@mkboth{}{}}
  \addcontentsline{toc}{chapter}{\numberline{}Acknowledgements}
- \noindent
  \acknowledgementstext{}
 }
 
