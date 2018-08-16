@@ -34,12 +34,16 @@
 \pagenumbering{roman}
 \maketitle
 \setcounter{page}{2} % count the title page as pp1
+
 \makeabstract
+
 \tableofcontents
 \listoffigures
 \listoftables
+
 \makeacknowledgements
 \makedeclaration
+
 
 \cleardoublepage
 \pagenumbering{arabic}
@@ -61,6 +65,9 @@
 % \makeabbreviations
 
 % references
+\cleardoublepage
+\addcontentsline{toc}{chapter}{\numberline{}\bibname}
+
 \linespacesmall
 \bibliographystyle{apacite}
 \bibliography{thesis.bib}

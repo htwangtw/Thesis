@@ -222,13 +222,12 @@
 }
 
 % Bibliography
-\let\oldbibliography\bibliography
-\renewcommand\bibliography[1]{%
- \renewcommand\bibname{References}
- \cleardoublepage
- \addcontentsline{toc}{chapter}{\numberline{}\bibname}
- \oldbibliography{#1}
-}
+% \let\oldbibliography\bibliography
+% \renewcommand\bibliography[1]{%
+%  \cleardoublepage
+%  \addcontentsline{toc}{chapter}{\numberline{}\bibname}
+%  \oldbibliography{#1}
+% }
 
 % Table Of Contents counter options
 % Current settings: subsubsections are numbered on pages, but not listed in TOC
