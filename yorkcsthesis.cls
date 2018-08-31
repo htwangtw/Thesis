@@ -206,7 +206,7 @@
 
 % List of figures
 \renewcommand\listoffigures{%
- \addcontentsline{toc}{chapter}{\numberline{}List of figures}
+ \addcontentsline{toc}{chapter}{\numberline{}List of Figures}
  \chapter*{\listfigurename
       \@mkboth{\listfigurename}{\listfigurename}}%
  \@starttoc{lof}%
@@ -214,7 +214,7 @@
 
 % List of tables
 \renewcommand\listoftables{%
- \addcontentsline{toc}{chapter}{\numberline{}List of tables}
+ \addcontentsline{toc}{chapter}{\numberline{}List of Tables}
  \chapter*{\listtablename
       \@mkboth{\listtablename}{\listtablename}}%
  \@starttoc{lot}%
