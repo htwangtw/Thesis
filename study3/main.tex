@@ -84,6 +84,8 @@ SCCA maximised the linear correlation between the low-rank projections of two se
 The amount of L1 penalty for the functional connectomes and cognitive task performance were chosen by cross-validation. The procedure is described below.
 
 \subsubsection{Model Selection}
+\label{study3:method:f:1}
+
 The model selection process was conducted with two parts: the L1 penalty coefficient selection and component selection. For the L1 penalty coefficient selection, we performed a grid search combined with cross-validation (CV) to avoid over-fitting \cite{BzdokYeo2017}.
 Of each penalty pair on the search grid, a 10-fold CV was performed to search for the best out-of-sample the rank-1 canonical correlation (see the middle panel of \cref{fig:study3:fig1}). We then decomposed the full dataset with the selected L1 penalty coefficients. The K-Fold CV was conducted by the implementation in Python library scikit-learn \cite<\url{http://scikit-learn.org/stable/}, version 0.18.2>{scikit-learn}.
 
@@ -100,9 +102,9 @@ After finding the optimal hyper-parameters, 1000 permutation tests with family-w
     \caption{Analysis pipeline.}
     \label{fig:study3:fig1}
     \caption*{\footnotesize{
-    Top: PCA on MDES.
-    Middle: sparsity parameter selection.
-    Bottom: permutation test.
+    Top: PCA on MDES (\cref{study3:method:e:mdes}).
+    Middle: sparsity parameter selection (\cref{study3:method:f:1}). 
+    Bottom: permutation test procedure (\cref{study3:method:f:1}).
     }} % eleborate
 \end{figure}
 
@@ -116,40 +118,43 @@ we conducted three independent statistical analysis on the identical subjects. A
 \section{Results}
 \label{study3:results}
 
-\subsection{Dimensions of ongoing thought}
-Experience sampling probes revealed four unique dimensions of ongoing thought during the 0-back/1-back task. PCA of the 13 experience sampling questions resulted in four principle components of thought presented in \cref{fig:study3:figPCA}. The components were labelled as: detailed thought, off-task thought, modality of thought, and emotional thought.
+\begin{wrapfigure}{o}{0.5\textwidth}
 
-\begin{wrapfigure}{o}{0.4\textwidth}
-    \vspace{-10pt}
     \centering
-    \includegraphics[width=0.38\textwidth]{study3/image/study3pca.png}
-    \caption{Dimensions of on going thought.}
+    \includegraphics[width=0.48\textwidth]{study3/image/study3pca.png}
+    \caption{Dimensions of ongoing though.}
+    \caption*{The result from the PCA is presented as a heatmap. The colour bar represents the value of the principal component loading.}
     \label{fig:study3:figPCA}
-    \vspace{-20pt}
+
 \end{wrapfigure}
 
+\subsection{Dimensions of ongoing thought}
+Experience sampling probes revealed four unique dimensions of ongoing thought during the 0-back/1-back task. PCA of the 13 experience sampling questions resulted in four principle components of thought presented in \cref{fig:study3:figPCA}. Consistent with our prior study \cite{Poerio2017}, the components were characterised as: detailed thought, off-task thought, modality of thought, and emotional thought.
 
-\subsection{Determining constituent category of cognitive functions}
+
+\subsection{Neurocognitive component selection}
 
 Sparse Canonical Correlation Analysis (SCCA) was used to determine connectome-wide dimensions that describe common variance shared by descriptions of brain and experience. This took as input individual scores for the connections between each of the regions extracted from Yeo's 7 networks parcellation and the 13 cognitive task scores.
 
-\begin{wrapfigure}{o}{0.4\textwidth}
-    \vspace{-10pt}
+\begin{wrapfigure}{o}{0.5\textwidth}
     \centering
-    \includegraphics[width=0.38\textwidth]{study3/image/study3fig2.png}
-    \caption{Grid search result}
+    \includegraphics[width=0.48\textwidth]{study3/image/study3fig2.png}
+    \caption{Grid search result.}
+    \caption*{This heatmap represents the rank-1 canonical correlations of each sparsity coefficient pairs determined by the CV. The red square indicates the best result.}
     \label{fig:study3:fig2}
-    \vspace{-20pt}
 \end{wrapfigure}
 
-We applied SCCA with 10-fold CV and permutation tests as the model selection strategy. We obtained penalty levels of 0.6 on both the functional connectivity and cognitive tasks indicated the best out-of-sample prediction on our data through the grid search (Figure \ref{fig:study3:fig1}), obtaining 0.70 on the rank-1 canonical correlation. Five significant canonical components were identified through FWE-corrected p-value through permutation tests. The p-values of the 5 components are 0.028, 0.042, 0.041, 0.012, 0.033. The canonical correlations of the 5 significant latent components were 0.68, 0.68, 0.68, 0.70, and 0.68. Since the sparsity turns CCA into a convex optimisation problem, the modes didn't come out in the descending order of their canonical correlations.
+We applied SCCA with 10-fold CV and permutation tests as the model selection strategy. We obtained penalty levels of 0.6 on both the functional connectivity and cognitive tasks indicated the best out-of-sample prediction on our data through the grid search (Figure \ref{fig:study3:fig2}), obtaining 0.70 on the rank-1 canonical correlation. Five significant canonical components were identified through FWE-corrected p-value through permutation tests. The p-values of the 5 components are 0.028, 0.042, 0.041, 0.012, 0.033. The canonical correlations of the 5 significant latent components were 0.68, 0.68, 0.68, 0.70, and 0.68. Since the sparsity turns CCA into a convex optimisation problem, the modes didn't come out in the descending order of their canonical correlations.
 
-The latent components yielded by the best model are presented in Figure \ref{fig:study3:fig2}. For the ease of presentation and interpretation, we summarized the components as network-network connectivity instead of 57-by-57 connectivity matrices. The heat maps describe the network-to-network correlations and the cognitive tasks.
+\subsection{Determining constituent category of cognitive functions}
+
+The latent components yielded by the best model are presented in \cref{fig:study3:fig3}. Using SCCA we identified five neurocognitive dimensions characterised at the cognitive level as the creative association (Component 1), fluid intelligence (Component 9), temporally specified cognition (Component 7), and, separate dimensions of episodic memory linked to visual (Component 8) and verbal (Component 12) codes of representation. For the ease of presentation and interpretation, we summarised the components as network-network connectivity instead of 57-by-57 connectivity matrices. The heat maps describe the network-to-network correlations and the cognitive tasks.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{study3/image/study3fig3.png}
-    \caption{Significant components.}
+    \caption{Significant components from SCCA.}
+    \caption*{The colour in the heatmap indicates the value of the canonical coefficients of each components. VIS: visual network, S-M: somatomotor network, VAN: ventral attention network, DAN: dorsal attention network, LIM: limbic network, FPN: frontoparietal network, DMN: default mode network.}
     \label{fig:study3:fig3}
 \end{figure}
 
@@ -165,9 +170,10 @@ Component 9 is composed of tasks that rely on controlled processing (fluid intel
 Component 12 highlights the between episodic memory (better paired-associate memory) and worse visual semantic memory (worse verbal semantics and poor figure matching). Fluency was better when organised alphabetically rather than by categories. The default mode network and the visual system showed a general coupling pattern with the other networks, while a strong dissociation of the limbic with the attention systems and the sensorimotor system. The component demonstrates a strong ability to retain and recall information that does not benefit from the semantic organisation.
 
 \subsection{The relationship between neurocognitive components and self-reports on thoughts}
+\label{study3:results:group}
 % multivariate main effect
 
-Three regression models were performed to evaluate the relationship between neurocognitive components and self-reports on thoughts: average scores of all thought probes thought probes in 0-back and 1-back conditions. 
+Three regression models were performed to evaluate the relationship between neurocognitive components and self-reports on thoughts: average scores of all thought probes thought probes in 0-back and 1-back conditions (\cref{fig:study3:fig4}). 
 
 We first examined the relations of the neurocognitive components and the overall thought reports. In the model of all thought probes, we got multivariate main effect in component 7 (\textit{F}(13, 160) = 2.239, \textit{p} = .010, \paretasquared = .154)
 and 12 (\textit{F}(13, 160) = 1.946, \textit{p} = .029, \paretasquared = .137). There was only one significant univeriate effect after Bonferroni correction, which is the negative correlation on self-question under component 7 
@@ -192,30 +198,25 @@ The 1-back condition required participants to maintain meaningless associations 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{study3/image/study3fig4.png}
-    \caption{Univariate results.}
+    \includegraphics[width=0.9\textwidth]{study3/image/study3fig4.png}
+    \caption{Group level analysis on neurocognitive components and  self-report on thoughts.}
     \caption*{
-    \footnotesize{
-    % caption
-    }
+    \footnotesize{The codes next to the component number indicate the significant level of the mutivariate results, and those in the coloured cells are for the univariate results. The colour represent the univariate \textit{b} value. P-value significant codes: `***': \(<0.001\);  `**': \; `*': \(<0.05\); `.': \(<0.01\)}
     }
     \label{fig:study3:fig4}
 \end{figure}
 
 
 \subsection{The relationship between neurocognitive components and ongoing thought patterns}
-Pearson's correlations were calculated to explore the relationships between the neurocognitive components and the ongoing thought. The temporally specific cognition component is negatively correlated to details and off-task components (\cref{fig:study3:figcorr}). 
 
-%figure here
+Pearson's correlations were calculated to explore the relationships between the neurocognitive components and the dimensions of ongoing thought. The temporally specific cognition component (Component 7) is negatively correlated to details and off-task components (\cref{fig:study3:figcorr}). 
+
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{study3/image/pca_cca_corr.png}
+    \includegraphics[width=0.6\textwidth]{study3/image/pca_cca_corr.png}
     \caption{The relationships between the neurocognitive components and the ongoing thought.}
-    \caption*{
-    \footnotesize{
-    % caption
-    }
-    }
+    \caption*{This heatmap represents correlation between the principal components and the univariate level predictions in \cref{study3:results:group}.}
     \label{fig:study3:figcorr}
 \end{figure}
 
@@ -223,7 +224,7 @@ Pearson's correlations were calculated to explore the relationships between the 
 \section{Discussion}
 \label{study3:discussion}
 
-We set out to identify patterns that described the association between different aspects of cognition and the intrinsic organisation of the cortex and to explore whether these accounted for variations in patterns of ongoing thought. Using SCCA we identified five neurocognitive dimensions characterised at the cognitive level as the creative association, fluid intelligence, temporally specified cognition, and, separate dimensions of episodic memory linked to visual and verbal codes of representation. In our subsequent analysis, we identified that variation in temporally specified cognition was associated with substantial variance in patterns of ongoing thought recorded in the laboratory. In particular, we found that this neurocognitive dimension was associated with variation in both the task relatedness of cognition and its level of immersive details. In the discussion, we consider the implications of these data for theoretical accounts of ongoing thought.
+We set out to identify patterns that described the association between different aspects of cognition and the intrinsic organisation of the cortex and to explore whether these accounted for variations in patterns of ongoing thought. Using SCCA we identified five neurocognitive dimensions characterised at the cognitive level as the creative association (Component 1), fluid intelligence (Component 9), temporally specified cognition (Component 7), and, separate dimensions of episodic memory linked to visual (Component 8) and verbal (Component 12) codes of representation. In our subsequent analysis, we identified that variation in temporally specified cognition was associated with substantial variance in patterns of ongoing thought recorded in the laboratory. In particular, we found that this neurocognitive dimension was associated with variation in both the task relatedness of cognition and its level of immersive details. In the discussion, we consider the implications of these data for theoretical accounts of ongoing thought.
 
 In neural terms, our CCA analysis suggests that the relative degree of integration/segregation of the limbic system is at the core of whether an individuals experience is a pristine reflection of their current external goal, or instead, they are immersed in thoughts generated through imagination. We found that individuals who maintained attention on the task in hand, tended to show a pattern of brain activity dominated by whether the limbic system was coupled to itself, but decoupled from other cortical areas, while individuals who reported off-task experiences with immersive qualities showed the reverse pattern (low within network coupling, and high between network coupling for the limbic system). These data add to a growing body of evidence that highlights limbic regions as critical for patterns of spontaneous thought. For example, lesions to the hippocampus are associated with reductions in off-task thinking \cite{McCormick2018} and episodic future thinking as part of a task \cite{Maguire2011,Race2011}. Likewise, semantic dementia, which targets the lateral and medial aspects of the temporal pole, reduced the capacity to imagine the future \cite{Irish2012,Viard2014}. Furthermore, hippocampus activity has been shown to be important for spontaneous thought during the occurrence of spontaneous thought \cite{Ellamil2016}, while its connectivity with regions of the default mode network is important for both episodic features of spontaneous experience \cite{Karapanagiotidis2017} as well as its immersive features \cite{Smallwood2016}. Based on our results, the contribution of limbic structures to spontaneous experience may depend on their coupling with other regions, allowing these hub regions to integrate information from across the cortex to create a mental scene \cite{Hassabis2009}. This account is broadly consistent with views of limbic structures, such as the hippocampus \cite{Moscovitch2016} and the anterior temporal lobe \cite{Lambon-Ralph2017} which are both thought to share a hub and spoke architecture in which their contribution to cognition arise from their capacity to integrate information from across the cortical mantle.
 
